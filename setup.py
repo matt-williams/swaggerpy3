@@ -32,7 +32,7 @@ setup(
         "Programming Language :: Python",
     ],
     tests_require=["nose", "tissue", "coverage", "httpretty"],
-    install_requires=["aiohttp"],
+    install_requires=["aiohttp==3.2.1"],
     entry_points="""
     [console_scripts]
     swagger-codegen = swaggerpy3.codegen:main
