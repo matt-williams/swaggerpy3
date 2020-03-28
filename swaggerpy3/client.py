@@ -7,7 +7,6 @@ import urllib.request, urllib.parse, urllib.error
 from .http_client import AsyncHttpClient
 from .processors import WebsocketProcessor, SwaggerProcessor
 
-logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)
 
 class ClientProcessor(SwaggerProcessor):
@@ -101,10 +100,10 @@ class Operation(object):
             return await self.http_client.ws_connect(uri, params=params)
         else:
             return await self.http_client.request(
-                method, 
-                uri, 
-                params=params, 
-                data=data, 
+                method,
+                uri,
+                params=params,
+                data=data,
                 headers=headers
             )
 
@@ -171,7 +170,7 @@ class Resource(object):
         uri = decl['basePath'] + api['path']
         return Operation(uri, operation, self.http_client)
 
-        
+
 class SwaggerClient(object):
     async def connect(self, url_or_resource, http_client=None):
         if not http_client:
